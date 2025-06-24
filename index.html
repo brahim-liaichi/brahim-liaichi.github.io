@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brahim Liaichi - AI-Native SaaS Builder</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .name {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .title {
+            font-size: 1.3rem;
+            color: #3498db;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-bottom: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #7f8c8d;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #3498db;
+        }
+
+        .languages {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
+
+        .profile-text {
+            text-align: justify;
+            color: #555;
+            line-height: 1.8;
+        }
+
+        .skills-category {
+            margin-bottom: 25px;
+        }
+
+        .category-title {
+            font-size: 1.2rem;
+            color: #3498db;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skills-list {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .skills-list li {
+            padding: 8px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .skills-list li:before {
+            content: "▶";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+        }
+
+        .full-width {
+            grid-column: 1 / -1;
+        }
+
+        .experience-item, .project-item {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .job-period {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .company {
+            color: #3498db;
+            margin-bottom: 10px;
+        }
+
+        .responsibilities {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding: 5px 0;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .responsibilities li:before {
+            content: "•";
+            color: #3498db;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .project-name {
+            font-size: 1.2rem;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .education-item {
+            margin-bottom: 20px;
+        }
+
+        .degree {
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .school {
+            color: #7f8c8d;
+            margin-bottom: 5px;
+        }
+
+        .year {
+            color: #7f8c8d;
+            font-style: italic;
+        }
+
+        .footer {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 20px;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .name {
+                font-size: 2rem;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .job-header {
+                flex-direction: column;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1 class="name">Brahim Liaichi</h1>
+            <p class="title">AI-Native SaaS Builder | Digitalisation Lead | Process Engineer</p>
+            
+            <div class="contact-info">
+                <a href="mailto:brahimliaichi011@gmail.com" class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    brahimliaichi011@gmail.com
+                </a>
+                <a href="tel:+212640559282" class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    +212 640 55 92 82
+                </a>
+                <a href="https://www.linkedin.com/in/brahim-liaichi-ab2a3a212" target="_blank" class="contact-item">
+                    <i class="fab fa-linkedin"></i>
+                    LinkedIn Profile
+                </a>
+            </div>
+            
+            <div class="languages">
+                <i class="fas fa-language"></i>
+                Arabe (natif) | Français (bon niveau) | Anglais (bon niveau)
+            </div>
+        </header>
+
+        <div class="main-content">
+            <section class="section">
+                <h2 class="section-title">Profil Professionnel</h2>
+                <p class="profile-text">
+                    AI-native SaaS builder avec une formation en génie des procédés industriels, passionné par la création de solutions digitales innovantes. Actuellement Chargé de Mission en Digitalisation, j'utilise l'IA pour prototyper rapidement, automatiser les workflows et construire des applications SaaS fonctionnelles. Collaboration efficace avec des IA avancées (GPT-4, Claude) pour concevoir des outils utiles, sans dépendre d'une expertise en syntaxe de code.
+                </p>
+            </section>
+
+            <section class="section">
+                <h2 class="section-title">Compétences Clés</h2>
+                
+                <div class="skills-category">
+                    <h3 class="category-title">Tech / IA / Développement</h3>
+                    <ul class="skills-list">
+                        <li>Développement de MVP SaaS avec GPT-4, Claude</li>
+                        <li>Prompt engineering, SIP (Strategic Incremental Prompting)</li>
+                        <li>Stack : React, Django, Next.js, GitHub, Vercel</li>
+                        <li>APIs REST, Authentification (Auth0, MSAL)</li>
+                        <li>Automatisation de workflows (scripts, IA, no-code)</li>
+                    </ul>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">Digitalisation / Gestion</h3>
+                    <ul class="skills-list">
+                        <li>Optimisation des processus numériques (Lean, DMAIC)</li>
+                        <li>Formation des utilisateurs, conduite du changement</li>
+                        <li>Outils : Kairnial, COSTS, Power Platform</li>
+                        <li>Gestion documentaire, reporting structuré</li>
+                    </ul>
+                </div>
+            </section>
+        </div>
+
+        <section class="section full-width">
+            <h2 class="section-title">Expériences Professionnelles</h2>
+            
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Chargé de Mission Digitalisation</div>
+                        <div class="company">Ventec, Casablanca</div>
+                    </div>
+                    <div class="job-period">Juin 2024 - Présent</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Optimisation des workflows numériques pour améliorer l'efficacité opérationnelle</li>
+                    <li>Formation et accompagnement des utilisateurs dans l'adoption des outils digitaux</li>
+                    <li>Gestion et coordination des projets sur les plateformes Kairnial et COSTS</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Stage PFE</div>
+                        <div class="company">Groupe OCP, Jorf Lasfar</div>
+                    </div>
+                    <div class="job-period">Février - Mai 2023</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Application de la méthode DMAIC (Lean Six Sigma) pour l'amélioration continue</li>
+                    <li>Développement de modèles prédictifs pour optimiser la qualité du produit MAP soluble</li>
+                    <li>Analyse statistique des données de production et recommandations d'amélioration</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="job-header">
+                    <div>
+                        <div class="job-title">Stage PFA</div>
+                        <div class="company">SOMIFER MANAGEM, El Bleida</div>
+                    </div>
+                    <div class="job-period">Juillet - Août 2022</div>
+                </div>
+                <ul class="responsibilities">
+                    <li>Analyse approfondie de la performance des procédés de traitement industriel</li>
+                    <li>Collecte systématique et analyse des données d'atelier pour optimisation</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section full-width">
+            <h2 class="section-title">Projets Tech & Collaboration IA</h2>
+            
+            <div class="project-item">
+                <div class="project-name">Tableau de bord financier</div>
+                <p>Application React/Django complète pour la gestion budgétaire de projets BTP avec interface utilisateur intuitive et reporting automatisé.</p>
+            </div>
+
+            <div class="project-item">
+                <div class="project-name">SIPBlog</div>
+                <p>Plateforme de documentation interactive basée sur la méthodologie Strategic Incremental Prompting, facilitant le partage de connaissances techniques.</p>
+            </div>
+
+            <div class="project-item">
+                <div class="project-name">Automatisations intelligentes</div>
+                <p>Prototypage rapide de fonctionnalités complexes via agents IA (ChatGPT, Claude) sans codage manuel traditionnel, accélérant le développement produit.</p>
+            </div>
+        </section>
+
+        <section class="section full-width">
+            <h2 class="section-title">Formations</h2>
+            
+            <div class="education-item">
+                <div class="degree">Diplôme d'ingénieur d'État – Génie des procédés industriels</div>
+                <div class="school">École Mohammadia d'ingénieurs, Rabat</div>
+                <div class="year">2020-2023</div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">Classes Préparatoires aux Grandes Écoles (CPGE)</div>
+                <div class="school">Lycée IBN TAHIR, Errachidia</div>
+                <div class="year">2018-2020</div>
+            </div>
+
+            <div class="education-item">
+                <div class="degree">Baccalauréat Sciences Mathématiques A</div>
+                <div class="school">Lycée SIDI AHMED BENNACER, Zagora</div>
+                <div class="year">2017-2018</div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <p>&copy; 2025 Brahim Liaichi. Tous droits réservés.</p>
+            <p>Site hébergé sur GitHub Pages</p>
+        </footer>
+    </div>
+</body>
+</html>
